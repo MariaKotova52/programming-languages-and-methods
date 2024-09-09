@@ -109,5 +109,5 @@ btn_delete.place(x = 50, y = 250, width = 50, height = 50)
 
 switch_button = Button(root, bg = '#F0FFF0', fg = '#000000', text="<->", command=switch_focus)
 switch_button.place(x = 200, y = 250, width = 50, height = 50)
-
+entry1.focus_set()
 root.mainloop()
