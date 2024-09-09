@@ -110,7 +110,7 @@ btn_div = Button(root, bg = '#F0FFF0', fg = '#000000', text = 'div', command = d
 btn_div.place(x = 200, y = 50, width = 50, height = 50)
 btn_minus = Button(root, bg = '#F0FFF0', fg = '#000000', text = '—', command = minus_sign)
 btn_minus.place(x = 50, y = 50, width = 50, height = 50)
-btn_delete = Button(root, bg = '#F0FFF0', fg = '#000000', text = 'C', command = lambda: el_delete())
+btn_delete = Button(root, bg = '#F0FFF0', fg = '#000000', text = 'C', command = el_delete)
 btn_delete.place(x = 50, y = 250, width = 50, height = 50)
 
 switch_button = Button(root, bg = '#F0FFF0', fg = '#000000', text="<->", command=switch_focus)
