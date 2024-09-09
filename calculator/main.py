@@ -25,8 +25,14 @@ entry2.place(x = 165, y = 10)
 def block_keyboard(event):
     return "break"
 
+def block_mouse(event):
+    return "break"
+
 entry1.bind("<Key>", block_keyboard)
 entry2.bind("<Key>", block_keyboard)
+
+entry1.bind("<Button-1>", block_mouse)
+entry2.bind("<Button-1>", block_mouse)
 
 def input_entry(a):
     if entry2.focus_get() == entry2:
