@@ -13,11 +13,11 @@ label.pack()
 
 def create_password():
     global password
-    password = hashlib.sha256((entry1.get()+''.join('0' if char in 'aeiouAEIOU' else '1' if char.isalpha() else char for char in entry1.get())).encode())
-    #print(password.hexdigest())
+    password = hashlib.sha256(('!papper4589'+ entry1.get()+''.join('0' if char in 'aeiouAEIOU' else '1' if char.isalpha() else char for char in entry1.get())).encode())
+    print(password.hexdigest())
 
 def check_password():
-    if password.hexdigest() == hashlib.sha256((entry2.get()+''.join('0' if char in 'aeiouAEIOU' else '1' if char.isalpha() else char for char in entry2.get())).encode()).hexdigest():
+    if password.hexdigest() == hashlib.sha256(('!papper4589' + entry2.get()+''.join('0' if char in 'aeiouAEIOU' else '1' if char.isalpha() else char for char in entry2.get())).encode()).hexdigest():
         showinfo("Ура", "Верный пароль")
     else:
         showerror("Упс", "Неверный пароль")
