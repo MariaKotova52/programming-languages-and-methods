@@ -55,7 +55,7 @@ def el_delete():
 def mod_operation():
     try:
         num1 = int(entry1.get())
-        num2 = int(entry2.get())
+        num2 = int(entry2.get()) 
         result = num1 % num2
         showinfo("Результат", f"Остаток от деления: {result}")
     except ValueError:
@@ -83,7 +83,7 @@ def minus_sign():
             entry2.insert(0, '-')
 
 
-btn1 = Button(root, bg = '#F0FFF0', fg = '#000000', text = '1', command = lambda: input_entry('1'))
+btn1 = Button(root, bg = '#F0FFF0', fg = '#000000', text = '1', command = lambda:input_entry('1'))
 btn1.place(x = 50, y = 100, width = 50, height = 50)
 btn2 = Button(root, bg = '#F0FFF0', fg = '#000000', text = '2', command = lambda: input_entry('2'))
 btn2.place(x = 125, y = 100, width = 50, height = 50)
