@@ -105,22 +105,22 @@ def update_ball(x, y, x_speed, y_speed):
         if block.colliderect(pygame.Rect(x - r, y - r, r * 2, r * 2)):
             blocks.remove(block)
             global green_bonus_active, green_bonus_x, green_bonus_y, red_bonus_active, red_bonus_x, red_bonus_y, blue_bonus_active, blue_bonus_x, blue_bonus_y, ball_bonus_active, ball_bonus_x, ball_bonus_y
-            if random.random() < 0.90 and not green_bonus_active and not red_bonus_active and not blue_bonus_active and not ball_bonus_active:
+            if random.random() < 0.3 and not green_bonus_active and not red_bonus_active and not blue_bonus_active and not ball_bonus_active:
                 bonus_type = random.random()
-                if bonus_type < 0.03:
+                if bonus_type < 0.25:
                     green_bonus_active = True
                     green_bonus_x = random.randint(0, width - green_bonus_width)
                     green_bonus_y = 0
-                elif bonus_type < 0.05:
+                elif bonus_type < 0.5:
                     blue_bonus_active = True  
                     blue_bonus_x = random.randint(0, width - green_bonus_width)
                     blue_bonus_y = 0
-                elif bonus_type < 0.07:
+                elif bonus_type < 0.75:
                     red_bonus_active = True  
                     red_bonus_x = random.randint(0, width - green_bonus_width)
                     red_bonus_y = 0
                 else:  
-                    ball_bonus_active = True  # Новый бонус активен
+                    ball_bonus_active = True  
                     ball_bonus_x = random.randint(0, width - green_bonus_width)
                     ball_bonus_y = 0
             if abs(block.top - (y + r)) < 10 or abs(block.bottom - (y - r)) < 10:
