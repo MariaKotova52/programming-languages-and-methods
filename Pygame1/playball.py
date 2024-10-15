@@ -83,7 +83,6 @@ extra_ball_y = initial_ball_y
 extra_ball_x_speed = initial_ball_x_speed
 extra_ball_y_speed = initial_ball_y_speed
 
-
 def create_blocks():
     for row in range(block_rows):
         for col in range(block_cols):
@@ -105,7 +104,7 @@ def update_ball(x, y, x_speed, y_speed):
         if block.colliderect(pygame.Rect(x - r, y - r, r * 2, r * 2)):
             blocks.remove(block)
             global green_bonus_active, green_bonus_x, green_bonus_y, red_bonus_active, red_bonus_x, red_bonus_y, blue_bonus_active, blue_bonus_x, blue_bonus_y, ball_bonus_active, ball_bonus_x, ball_bonus_y
-            if random.random() < 0.3 and not green_bonus_active and not red_bonus_active and not blue_bonus_active and not ball_bonus_active:
+            if random.random() < 0.3 and (not green_bonus_active) and (not red_bonus_active) and (not blue_bonus_active) and (not ball_bonus_active):
                 bonus_type = random.random()
                 if bonus_type < 0.25:
                     green_bonus_active = True
@@ -134,11 +133,6 @@ def draw_blocks():
     for block in blocks:
         pygame.draw.rect(screen, block_color, block)
 
-def display_message(message):
-    font = pygame.font.Font(None, 74)
-    text = font.render(message, True, (0, 0, 0))
-    text_rect = text.get_rect(center=(width // 2, height // 2))
-    screen.blit(text, text_rect)
 
 done = True
 create_blocks()
@@ -264,7 +258,7 @@ while done:
                 create_blocks()
 
         if not blocks and game_started:
-            screen.fill((230, 230, 250))  
+            
             font = pygame.font.Font(None, 36)  
             message_text = font.render("Красава!", True, (0, 0, 0))  
             text_rect = message_text.get_rect(center=(width // 2, height // 2))  
@@ -298,8 +292,7 @@ while done:
     lives_text = font.render(f'Жизни: {lives}', True, (0, 0, 0))
     screen.blit(lives_text, (10, 10))
 
-    if lives == 0 and not game_started:
-        screen.fill((230, 230, 250))  
+    if lives == 0 and not game_started:  
         font = pygame.font.Font(None, 36)  
         message_text = font.render("Не повезло, не фортануло", True, (0, 0, 0))  
         text_rect = message_text.get_rect(center=(width // 2, height // 2))  
