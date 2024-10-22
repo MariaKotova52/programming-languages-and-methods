@@ -1,11 +1,10 @@
-class RationalFraction:
+class  RationalFraction:
     def __init__(self, numerator, denominator):
         if denominator == 0:
             raise ZeroDivisionError("Знаменатель не может быть равен 0")
         self.numerator = numerator
         self.denominator = denominator
 
-    @staticmethod
     def nod(a, b):
         a1 = max(abs(a), abs(b))
         b1 = min(abs(a), abs(b))
@@ -15,7 +14,6 @@ class RationalFraction:
             return -a1
         return a1
 
-    @staticmethod
     def correct_minus(a, b):
         if a >= 0 and b < 0:
             b *= -1
@@ -36,8 +34,8 @@ class RationalFraction:
         else:
             res_numerator = self.numerator + other * self.denominator
             res_denominator = self.denominator
-        k = self.nod(res_numerator, res_denominator)
-        res_numerator, res_denominator = self.correct_minus(
+        k = RationalFraction.nod(res_numerator, res_denominator)
+        res_numerator, res_denominator = RationalFraction.correct_minus(
             res_numerator, res_denominator
         )
         return f"{res_numerator // k}/{res_denominator // k}"
@@ -56,8 +54,8 @@ class RationalFraction:
         else:
             res_numerator = self.numerator - other * self.denominator
             res_denominator = self.denominator
-        k = self.nod(res_numerator, res_denominator)
-        res_numerator, res_denominator = self.correct_minus(
+        k = RationalFraction.nod(res_numerator, res_denominator)
+        res_numerator, res_denominator = RationalFraction.correct_minus(
             res_numerator, res_denominator
         )
         return f"{res_numerator // k}/{res_denominator // k}"
@@ -69,8 +67,8 @@ class RationalFraction:
         else:
             res_numerator = self.numerator * other
             res_denominator = self.denominator
-        k = self.nod(res_numerator, res_denominator)
-        res_numerator, res_denominator = self.correct_minus(
+        k = RationalFraction.nod(res_numerator, res_denominator)
+        res_numerator, res_denominator = RationalFraction.correct_minus(
             res_numerator, res_denominator
         )
         return f"{res_numerator // k}/{res_denominator // k}"
@@ -88,14 +86,14 @@ class RationalFraction:
                 raise ZeroDivisionError("Нельзя делить на 0")
             res_numerator = self.numerator
             res_denominator = self.denominator * other
-        k = self.nod(res_numerator, res_denominator)
-        res_numerator, res_denominator = self.correct_minus(
+        k = RationalFraction.nod(res_numerator, res_denominator)
+        res_numerator, res_denominator = RationalFraction.correct_minus(
             res_numerator, res_denominator
         )
         return f"{res_numerator // k}/{res_denominator // k}"
 
     def power(self, n):
-        k = self.nod(self.numerator, self.denominator)
+        k = RationalFraction.nod(self.numerator, self.denominator)
         self.denominator //= k
         self.numerator //= k
         if n >= 0:
@@ -104,7 +102,7 @@ class RationalFraction:
         else:
             res_numerator = self.denominator ** (-n)
             res_denominator = self.numerator ** (-n)
-        res_numerator, res_denominator = self.correct_minus(
+        res_numerator, res_denominator = RationalFraction.correct_minus(
             res_numerator, res_denominator
         )
         return f"{res_numerator}/{res_denominator}"

@@ -100,7 +100,7 @@ def update_ball(x, y, x_speed, y_speed):
         y_speed = -y_speed
     if panel_x < x < panel_x + panel_width and y + r >= panel_y and y_speed > 0:
         y_speed = -y_speed
-    for block in blocks[:]:
+    for block in blocks:
         if block.colliderect(pygame.Rect(x - r, y - r, r * 2, r * 2)):
             blocks.remove(block)
             global green_bonus_active, green_bonus_x, green_bonus_y, red_bonus_active, red_bonus_x, red_bonus_y, blue_bonus_active, blue_bonus_x, blue_bonus_y, ball_bonus_active, ball_bonus_x, ball_bonus_y
@@ -142,8 +142,7 @@ while done:
         if event.type == pygame.QUIT:
             done = False
         if event.type == pygame.KEYDOWN and event.key == pygame.K_RETURN:
-            if lives == 0:
-                lives = 3
+            lives = 3
             game_started = True
             ball_x, ball_y = initial_ball_x, initial_ball_y
             ball_x_speed, ball_y_speed = initial_ball_x_speed, initial_ball_y_speed

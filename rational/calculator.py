@@ -10,10 +10,6 @@ root.geometry("350x350")
 
 root.resizable(False, False)
 
-frame = Frame(root, bg="#8FBC8F")
-frame.place(relx=0.15, rely=0, relwidth=0.7, relheight=1)
-
-
 entry1 = Entry(root, width=10, font=("", 15))
 entry1.place(x=50, y=10)
 
@@ -55,7 +51,6 @@ def el_delete():
         entry1.delete(0, END)
     else:
         entry2.delete(0, END)
-
 
 def parse_rational_fractions():
     try:
@@ -195,7 +190,7 @@ btn_mult.place(x=270, y=200, width=50, height=50)
 
 btn_pow = Button(
     root, bg="#F0FFF0", fg="#000000", text="^", command=power_operation
-)  # Возведение в степень
+)
 btn_pow.place(x=270, y=250, width=50, height=50)
 
 btn_minus = Button(root, bg="#F0FFF0", fg="#000000", text="—", command=minus_sign)

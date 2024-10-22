@@ -1,8 +1,8 @@
 import math
 
 class Circle:
-    def __init__(self, center_x, center_y, radius):
-        self.center_x = center_x
+    def __init__(self, new_center_x, center_y, radius):
+        self.center_x = new_center_x
         self.center_y = center_y
         self.radius = radius
 
@@ -26,7 +26,7 @@ class Circle:
         return part1 + part2 - part3
         
 circ1 = Circle(1, 1, 8)  
-circ2 = Circle(6, 4, 9)  
+circ2 = Circle(6, 4, 9) 
 
 print(f"Площадь circ1: {circ1.area()}")  
 print(f"Площадь circ2: {circ2.area()}")  
