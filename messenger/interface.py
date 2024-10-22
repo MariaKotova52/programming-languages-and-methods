@@ -110,8 +110,12 @@ class MessengerInterface:
         self.login_frame.pack()
 
     def register(self):
-        username = self.register_username.get()
-        password = self.register_password.get()
+        username = self.register_username.get().strip()
+        password = self.register_password.get().strip()
+
+        if not username or not password:
+            showerror("Error", "Username and password cannot be empty!")
+            return
 
         if username in self.users:
             showerror("Error", "User already exists!")
@@ -123,8 +127,12 @@ class MessengerInterface:
             self.show_login_frame()
 
     def login(self):
-        username = self.login_username.get()
-        password = self.login_password.get()
+        username = self.login_username.get().strip()
+        password = self.login_password.get().strip()
+
+        if not username or not password:
+            showerror("Error", "Username and password cannot be empty!")
+            return
 
         user = self.users.get(username)
         if user and user.check_password(password):
